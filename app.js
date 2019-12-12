@@ -38,6 +38,6 @@ io.on('connection', function(socket) {
     })
 });
 
-http.listen(PORT, function() {
+app.listen(PORT, function() {
     console.log('listening on localhost:3000');
 });
