@@ -1,0 +1,44 @@
+const express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+var expressHbs = require('express-handlebars');
+const port = process.env.PORT || 3000;
+
+app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
+app.set('view engine', '.hbs');
+
+
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function(req, res) {
+    // res.sendfile('index.html');
+    res.render('index');
+});
+
+users = [];
+io.on('connection', function(socket) {
+    socket.on('setUsername', function(data) {
+        if (users.indexOf(data) > -1) {
+            socket.emit('userExists', data + ' username is taken! Try some other username.');
+        } else {
+            users.push(data);
+            socket.emit('userSet', { username: data });
+        }
+        socket.on('disconnect', function() {
+            let newUsers = users.filter(el => {
+                return el != data
+            });
+            users = newUsers;
+        });
+    });
+
+    socket.on('msg', function(data) {
+        io.sockets.emit('newmsg', data);
+    })
+});
+
+http.listen(port, function() {
+    console.log('listening on localhost:3000');
+});

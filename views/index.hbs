@@ -1,0 +1,18 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="/chat.js"></script>
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <h1 class="text-center text-success" id="userTitle"></h1>
+        <div class="text-center lead text-danger" id="error-container"></div>
+        <div id="login">
+           <div class="form-group">
+                <input class="form-control" id="name" type="text" name="name" value="" placeholder="Enter your username!">
+           </div>
+            <button class="btn btn-primary btn-block" type="button" name="button" onclick="setUsername()">
+                Let me chat!
+            </button>
+        </div>
+        <div id="messageContainer"></div>
+    </div>
+</div>
