@@ -1,7 +1,7 @@
 const express = require('express');
 var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+// var http = require('http').Server(app);
+// var io = require('socket.io')(http);
 
 var expressHbs = require('express-handlebars');
 const PORT = process.env.PORT || 3000;
@@ -40,6 +40,6 @@ app.use(express.static(__dirname + '/public'));
 //     })
 // });
 
-http.listen(PORT, function() {
+app.listen(PORT, function() {
     console.log('listening on localhost:3000');
 });
