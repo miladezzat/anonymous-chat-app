@@ -10,11 +10,13 @@ app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
 app.set('view engine', '.hbs');
 
 
-app.use(express.static(__dirname + '/public'));
-
 app.get('/', function(req, res) {
     res.render('index');
 });
+
+
+app.use(express.static(__dirname + '/public'));
+
 
 users = [];
 io.on('connection', function(socket) {
@@ -38,6 +40,6 @@ io.on('connection', function(socket) {
     })
 });
 
-app.listen(PORT, function() {
+http.listen(PORT, function() {
     console.log('listening on localhost:3000');
 });
