@@ -6,16 +6,16 @@ var app = express();
 var expressHbs = require('express-handlebars');
 const PORT = process.env.PORT || 3000;
 
-app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
-app.set('view engine', '.hbs');
+// app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
+// app.set('view engine', '.hbs');
 
 
-app.get('/', function(req, res) {
-    res.render('index');
-});
+// app.get('/', function(req, res) {
+//     res.render('index');
+// });
 
 
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
 
 
 // users = [];
