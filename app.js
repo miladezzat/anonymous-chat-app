@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 3000;
 // app.set('view engine', '.hbs');
 
 
-// app.get('/', function(req, res) {
-//     res.render('index');
-// });
+app.get('/', function(req, res) {
+    res.send('index');
+});
 
 
 // app.use(express.static(__dirname + '/public'));
