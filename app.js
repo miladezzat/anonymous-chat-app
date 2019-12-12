@@ -4,7 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var expressHbs = require('express-handlebars');
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
 app.set('view engine', '.hbs');
@@ -38,6 +38,6 @@ io.on('connection', function(socket) {
     })
 });
 
-http.listen(port, function() {
+http.listen(PORT, function() {
     console.log('listening on localhost:3000');
 });
