@@ -1,9 +1,10 @@
 const express = require('express');
+
 var app = express();
 // var http = require('http').Server(app);
 // var io = require('socket.io')(http);
 
-var expressHbs = require('express-handlebars');
+// var expressHbs = require('express-handlebars');
 const PORT = process.env.PORT || 3000;
 
 // app.engine('.hbs', expressHbs({ defaultLayout: 'layout', extname: '.hbs' }));
@@ -40,6 +41,6 @@ const PORT = process.env.PORT || 3000;
 //     })
 // });
 
-app.listen(PORT, function() {
-    console.log('listening on localhost:3000');
-});
+app.listen(PORT, () => {
+    console.log("Server Running on localhost: " + PORT);
+})
