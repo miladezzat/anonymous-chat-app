@@ -1,21 +1,32 @@
 {
-    "name": "socketio",
+    "name": "chat-app",
     "version": "1.0.0",
-    "description": "",
+    "description": "anonymouse chat app",
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start:dev": "./node_modules/.bin/nodemon app.js",
+        "depcheck": "./node_modules/.bin/npm-check"
     },
-    "author": "",
+    "author": {
+        "email": "miladezzat.f@gmail.com",
+        "name": "Milad E. Fahmy",
+        "url": "https://milad-ezzat.vercel.app"
+    },
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1",
-        "express-handlebars": "^3.1.0",
-        "socket.io": "^2.3.0"
+        "express-handlebars": "^5.3.2",
+        "jquery": "^3.6.0",
+        "npm-check": "^5.9.2",
+        "popper.js": "^1.16.1",
+        "socket.io": "^4.1.2"
     },
     "engines": {
         "node": "12.13.1",
         "npm": "6.13.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.9"
     }
 }
