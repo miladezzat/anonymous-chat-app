@@ -4,9 +4,13 @@ function setUsername() {
     let userName = document.getElementById('name').value;
     socket.emit('setUsername', userName);
     document.getElementById('userTitle').textContent = userName;
+    setTimeout(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+    }, 20);
 };
 
 let user;
+
 socket.on('userExists', function (data) {
     document.getElementById('error-container').innerHTML = data;
 });
@@ -17,12 +21,12 @@ socket.on('userSet', function (data) {
     user = data.username;
     messageContainer.innerHTML = `
         <div id = "message-container"></div>
-        <div class="fixed-bottom  w-25 mx-auto mb-5">
+        <div class="fixed-bottom  w-md-25 mx-auto mb-md-5">
         
-        <div class="form-group">
-        <input class="form-control" type = "text" id = "message" placeholder="Enter your message">
-        </div>
-        <button class="btn btn-success btn-block" type = "button" name = "button" onclick = "sendMessage()">Send</button>
+            <div class="form-group m-0">
+                <input class="form-control" type = "text" id = "message" placeholder="Enter your message">
+            </div>
+            <button class="btn btn-success btn-block" type = "button" name = "button" onclick = "sendMessage()">Send</button>
         </div>
     `;
 });
@@ -42,5 +46,6 @@ socket.on('newmsg', function (data) {
 
         const myDiv = document.getElementById("message-container");
         myDiv.scrollTop = myDiv.scrollHeight;
+        window.scrollTo(0, document.body.scrollHeight);
     }
 });

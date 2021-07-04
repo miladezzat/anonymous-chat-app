@@ -5,6 +5,6 @@
     scroll-behavior: smooth;
     border: 1px solid #123456;
     scrollbar-width: thin;
-    box-shadow: 2px 2px 5px 5px #123456;
-    margin-bottom: 5px;
+    box-shadow: 2px 2px 5px 5px #123456;    
+    margin-bottom: 100px;
 }
